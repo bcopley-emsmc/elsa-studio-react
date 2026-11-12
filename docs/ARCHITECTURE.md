@@ -180,7 +180,7 @@ providers it needs.
 
 ## Theming
 
-Five palettes (`ELSA_THEMES` in `src/lib/theme/elsa-theme.ts`) are expressed as CSS variable sets in
+Six palettes (`ELSA_THEMES` in `src/lib/theme/elsa-theme.ts`) are expressed as CSS variable sets in
 `src/app/globals.css`, selected by the `data-elsa-theme` attribute on `<html>` (set server-side from
 config and client-side from the persisted store). Light/dark comes from next-themes (`.dark` class).
 Use the semantic tokens (`bg-card`, `text-muted-foreground`, `bg-status-success`, `text-brand`,

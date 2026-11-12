@@ -102,8 +102,8 @@ export const studioConfigSchema = z.object({
       defaultTheme: z.enum(["light", "dark", "system"]).default("system"),
       /** Elsa theme pack (colour palette); users can override it from the header menu. */
       theme: z
-        .enum(["classic", "workflow-constellation", "workflow-aurora", "execution-timeline", "human-automation"])
-        .default("classic"),
+        .enum(["emsmc", "classic", "workflow-constellation", "workflow-aurora", "execution-timeline", "human-automation"])
+        .default("emsmc"),
       /** Polling interval in ms for live views (instances list, instance viewer). */
       pollIntervalMs: z.number().int().positive().default(5000),
       defaultPageSize: z.number().int().positive().default(25),

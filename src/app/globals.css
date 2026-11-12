@@ -7,9 +7,9 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--elsa-font-sans);
   --font-mono: var(--font-geist-mono);
-  --font-heading: var(--font-geist-sans);
+  --font-heading: var(--elsa-font-sans);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -51,7 +51,7 @@
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
   --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-xl: var(--elsa-radius-xl, calc(var(--radius) * 1.4));
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
@@ -60,6 +60,7 @@
 /* Shared, theme-independent tokens */
 :root {
   --radius: 0.5rem;
+  --elsa-font-sans: var(--font-geist-sans);
   --status-info: #0284c7;
   --status-success: #059669;
   --status-warning: #d97706;
@@ -72,6 +73,101 @@
   --status-warning: #fbbf24;
   --status-danger: #f87171;
   --status-neutral: #94a3b8;
+}
+
+/*
+ * ---- Elsa theme: emsmc ----
+ * The EMS|MC design system (E2 Light / E2 Dark). Values are the resolved hex of the `@emsmc/ui`
+ * tokens (surface/text/border/*), mapped onto the shadcn roles. Indigo is the one brand colour;
+ * mint, plum and citrus are accents and appear only in charts and illustration.
+ * In dark mode `--primary` is `surface/primary/strong` (#747DD4), not the #38469B button fill, so
+ * `text-primary` stays legible on black; `text/on-strong` (#040922) sits on it.
+ */
+:root[data-elsa-theme="emsmc"] {
+  --elsa-font-sans: var(--font-dm-sans), var(--font-geist-sans), system-ui, sans-serif;
+  --elsa-radius-xl: 1rem;
+  --background: #F2F2F2;
+  --foreground: #040922;
+  --card: #FFFFFF;
+  --card-foreground: #040922;
+  --popover: #FFFFFF;
+  --popover-foreground: #040922;
+  --primary: #38469B;
+  --primary-foreground: #FFFFFF;
+  --secondary: #EBEBEB;
+  --secondary-foreground: #040922;
+  --muted: #EBEBEB;
+  --muted-foreground: #626262;
+  --accent: #F0F1F8;
+  --accent-foreground: #040922;
+  --destructive: #A22020;
+  --border: #E3E3E3;
+  --input: #E3E3E3;
+  --ring: #747DD4;
+  --sidebar: #FFFFFF;
+  --sidebar-foreground: #040922;
+  --sidebar-primary: #38469B;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #F0F1F8;
+  --sidebar-accent-foreground: #040922;
+  --sidebar-border: #E3E3E3;
+  --sidebar-ring: #747DD4;
+  --elsa-primary: #38469B;
+  --elsa-secondary: #00724C;
+  --elsa-canvas: #FAFAFA;
+  --elsa-canvas-dot: color-mix(in oklab, #E3E3E3 85%, #626262);
+  --chart-1: #38469B;
+  --chart-2: #00724C;
+  --chart-3: #752E58;
+  --chart-4: #DDBA00;
+  --chart-5: #A22020;
+  --status-info: #38469B;
+  --status-success: #04680C;
+  --status-warning: #784109;
+  --status-danger: #A22020;
+  --status-neutral: #626262;
+}
+:root[data-elsa-theme="emsmc"].dark {
+  --background: #000000;
+  --foreground: #FFFFFF;
+  --card: #1A1A1A;
+  --card-foreground: #FFFFFF;
+  --popover: #1A1A1A;
+  --popover-foreground: #FFFFFF;
+  --primary: #747DD4;
+  --primary-foreground: #040922;
+  --secondary: color-mix(in oklab, #404040 55%, #1A1A1A);
+  --secondary-foreground: #FFFFFF;
+  --muted: color-mix(in oklab, #404040 42%, #000000);
+  --muted-foreground: #888888;
+  --accent: #192152;
+  --accent-foreground: #FFFFFF;
+  --destructive: #FFB5B5;
+  --border: #404040;
+  --input: #626262;
+  --ring: #747DD4;
+  --sidebar: #1A1A1A;
+  --sidebar-foreground: #FFFFFF;
+  --sidebar-primary: #747DD4;
+  --sidebar-primary-foreground: #040922;
+  --sidebar-accent: #192152;
+  --sidebar-accent-foreground: #FFFFFF;
+  --sidebar-border: #404040;
+  --sidebar-ring: #747DD4;
+  --elsa-primary: #747DD4;
+  --elsa-secondary: #93F6C9;
+  --elsa-canvas: #000000;
+  --elsa-canvas-dot: color-mix(in oklab, #404040 85%, #888888);
+  --chart-1: #747DD4;
+  --chart-2: #93F6C9;
+  --chart-3: #CE8CC0;
+  --chart-4: #DDBA00;
+  --chart-5: #FFB5B5;
+  --status-info: #BCBEEB;
+  --status-success: #D2F0D4;
+  --status-warning: #FFEDC1;
+  --status-danger: #FFB5B5;
+  --status-neutral: #888888;
 }
 
 /* ---- Elsa theme: classic ---- */
@@ -454,14 +550,14 @@
   --chart-5: #F87171;
 }
 
-/* Fallback when no theme attribute is present (SSR before hydration): classic */
+/* Fallback when no theme attribute is present (SSR before hydration): emsmc light */
 :root:not([data-elsa-theme]) {
-  --background: #ffffff; --foreground: #0f172a; --card: #f8fafc; --card-foreground: #0f172a; --popover: #ffffff; --popover-foreground: #0f172a;
-  --primary: #0ea5e9; --primary-foreground: #ffffff; --secondary: #eef2f6; --secondary-foreground: #0f172a; --muted: #f1f5f9; --muted-foreground: #64748b;
-  --accent: #eaf6fd; --accent-foreground: #0f172a; --destructive: #dc2626; --border: #e2e8f0; --input: #e2e8f0; --ring: #0ea5e9;
-  --sidebar: #f8fafc; --sidebar-foreground: #0f172a; --sidebar-primary: #0ea5e9; --sidebar-primary-foreground: #ffffff; --sidebar-accent: #e6f4fb; --sidebar-accent-foreground: #0f172a; --sidebar-border: #e2e8f0; --sidebar-ring: #0ea5e9;
-  --elsa-primary: #0ea5e9; --elsa-secondary: #64748b; --elsa-canvas: #fbfcfd; --elsa-canvas-dot: #cbd5e1;
-  --chart-1: #0ea5e9; --chart-2: #64748b; --chart-3: #059669; --chart-4: #d97706; --chart-5: #dc2626;
+  --background: #f2f2f2; --foreground: #040922; --card: #ffffff; --card-foreground: #040922; --popover: #ffffff; --popover-foreground: #040922;
+  --primary: #38469b; --primary-foreground: #ffffff; --secondary: #ebebeb; --secondary-foreground: #040922; --muted: #ebebeb; --muted-foreground: #626262;
+  --accent: #f0f1f8; --accent-foreground: #040922; --destructive: #a22020; --border: #e3e3e3; --input: #e3e3e3; --ring: #747dd4;
+  --sidebar: #ffffff; --sidebar-foreground: #040922; --sidebar-primary: #38469b; --sidebar-primary-foreground: #ffffff; --sidebar-accent: #f0f1f8; --sidebar-accent-foreground: #040922; --sidebar-border: #e3e3e3; --sidebar-ring: #747dd4;
+  --elsa-primary: #38469b; --elsa-secondary: #00724c; --elsa-canvas: #fafafa; --elsa-canvas-dot: #c4c4c4;
+  --chart-1: #38469b; --chart-2: #00724c; --chart-3: #752e58; --chart-4: #ddba00; --chart-5: #a22020;
 }
 
 @layer base {
@@ -479,6 +575,10 @@
   }
   h1, h2, h3 {
     letter-spacing: -0.01em;
+  }
+  /* EMS|MC type: DM Sans stylistic sets (rounded punctuation, alternate "u" and "y"). */
+  :root[data-elsa-theme="emsmc"] body {
+    font-feature-settings: "ss01", "ss04", "ss05";
   }
 }
 

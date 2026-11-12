@@ -114,7 +114,7 @@ here. [Modules](modules.md) lists the requirement for each one.
 {
   "ui": {
     "defaultTheme": "system",
-    "theme": "classic",
+    "theme": "emsmc",
     "pollIntervalMs": 5000,
     "defaultPageSize": 25
   }
@@ -124,7 +124,7 @@ here. [Modules](modules.md) lists the requirement for each one.
 | Setting | Values | Meaning |
 |---|---|---|
 | `defaultTheme` | `light`, `dark`, `system` | Starting appearance. Users can override it from the header. |
-| `theme` | `classic`, `workflow-constellation`, `workflow-aurora`, `execution-timeline`, `human-automation` | Elsa colour palette. |
+| `theme` | `emsmc`, `classic`, `workflow-constellation`, `workflow-aurora`, `execution-timeline`, `human-automation` | Elsa colour palette. |
 | `pollIntervalMs` | milliseconds | Refresh interval for live views such as the instances list and the instance viewer. |
 | `defaultPageSize` | number | Default rows per page in lists. |
 

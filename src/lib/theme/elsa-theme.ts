@@ -3,8 +3,9 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
-/** The five Elsa Studio theme packs; colours live in `src/app/globals.css`. */
+/** The six Elsa Studio theme packs; colours live in `src/app/globals.css`. */
 export const ELSA_THEMES = [
+  { id: "emsmc", label: "EMS|MC", description: "Indigo on neutral, from the EMS|MC design system", swatch: "#38469B" },
   { id: "classic", label: "Classic", description: "Sky blue on neutral slate", swatch: "#0EA5E9" },
   { id: "workflow-constellation", label: "Constellation", description: "Deep blue with violet accents", swatch: "#315EBD" },
   { id: "workflow-aurora", label: "Aurora", description: "Ocean blue with teal accents", swatch: "#0868BD" },

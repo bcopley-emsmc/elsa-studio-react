@@ -141,7 +141,7 @@ a rebuild. See [Configuration](docs/configuration.md) for the full reference.
     "diagnostics-console-logs": { "enabled": true },
     "diagnostics-structured-logs": { "enabled": true }
   },
-  "ui": { "defaultTheme": "system", "theme": "classic", "pollIntervalMs": 5000, "defaultPageSize": 25 }
+  "ui": { "defaultTheme": "system", "theme": "emsmc", "pollIntervalMs": 5000, "defaultPageSize": 25 }
 }
 ```
 
